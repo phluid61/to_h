@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name          = 'to_h'
-  gem.version       = '0.0.1'
+  gem.version       = '0.0.2'
   gem.authors       = ['Kenichi Kamiya']
   gem.email         = ['kachick1+ruby@gmail.com']
   gem.summary       = 'Add SomePairs#to_h for compatbility with Ruby 2.0+'
