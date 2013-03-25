@@ -1,7 +1,4 @@
 require 'test/unit'
-
-$VERBOSE = true
-
 require "#{File.dirname(File.dirname(__FILE__))}/lib/to_h"
 
 class Test_Hash_to_h < Test::Unit::TestCase
