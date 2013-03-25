@@ -3,7 +3,7 @@
 
 # @see http://d.hatena.ne.jp/nagachika/20120416/ruby_trunk_changes_35337_35352
 
-if RUBY_VERSION <= '2.0'
+if RUBY_VERSION < '2.0'
 
   class Hash
 
