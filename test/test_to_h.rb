@@ -39,6 +39,59 @@ class Test_NilClass_to_h < Test::Unit::TestCase
 
 end
 
+class Test_Enumerable_to_h < Test::Unit::TestCase
+
+  class Enum
+    include Enumerable
+
+    def each
+      yield [1, 2]
+      yield [8, 9]
+    end
+  end
+
+  class EnumWithArg
+    include Enumerable
+
+    def each(arg)
+      yield arg
+      yield [8, 9]
+    end
+  end
+
+  class EnumWithArgs
+    include Enumerable
+
+    def each(*args)
+      yield args
+      yield [8, 9]
+    end
+  end
+
+  HasToAry = Object.new
+  def HasToAry.to_ary
+    [1, 2]
+  end
+
+  def test_to_h
+    assert_equal -1, Enumerable.instance_method(:to_h).arity
+
+    assert_equal({1 => 2, 8 => 9}, Enum.new.to_h)
+    assert_equal({1 => 2, 8 => 9}, EnumWithArg.new.to_h([1, 2]))
+    assert_equal({1 => 2, 8 => 9}, EnumWithArgs.new.to_h(1, 2))
+    assert_equal({1 => 2, 8 => 9}, EnumWithArg.new.to_h(HasToAry))
+
+    assert_raise TypeError do
+      EnumWithArg.new.to_h("This object does not have `.to_ary'")
+    end
+
+    assert_raise ArgumentError do
+      EnumWithArgs.new.to_h.each(1, 2, 3)
+    end
+  end
+
+end
+
 require "#{File.dirname(File.dirname(__FILE__))}/lib/ostruct/to_h"
 
 class Test_OpenStruct_to_h < Test::Unit::TestCase
