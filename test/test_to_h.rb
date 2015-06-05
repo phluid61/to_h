@@ -92,6 +92,30 @@ class Test_Enumerable_to_h < Test::Unit::TestCase
 
 end
 
+class Test_Array_to_h < Test::Unit::TestCase
+
+  HasToAry = Object.new
+  def HasToAry.to_ary
+    [1, 2]
+  end
+
+  def test_to_h
+    assert_equal 0, Array.instance_method(:to_h).arity
+
+    assert_equal({1 => 2, 8 => 9}, [[1, 2], [8, 9]].to_h)
+    assert_equal({1 => 2, 8 => 9}, [HasToAry, [8, 9]].to_h)
+
+    assert_raise TypeError do
+      ["This object does not have `.to_ary'", [8, 9]].to_h
+    end
+
+    assert_raise ArgumentError do
+      [[1, 2], [8, 9, 10]].to_h
+    end
+  end
+
+end
+
 require "#{File.dirname(File.dirname(__FILE__))}/lib/ostruct/to_h"
 
 class Test_OpenStruct_to_h < Test::Unit::TestCase
