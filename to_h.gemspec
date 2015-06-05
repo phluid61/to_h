@@ -1,7 +1,7 @@
 Gem::Specification.new do |gem|
   gem.name          = 'to_h'
-  gem.version       = '0.0.2'
-  gem.summary       = 'Add SomePairs#to_h for compatbility with Ruby 2.0+'
+  gem.version       = '0.0.3'
+  gem.summary       = 'Add SomePairs#to_h for compatibility with Ruby 2.0+'
   gem.description   = gem.summary.dup
   gem.homepage      = 'http://kachick.github.com/to_h/'
 
