@@ -7,17 +7,24 @@ to_h
 Description
 -----------
 
-Add SomePairs#to_h for compatbility with Ruby 2.0+  
+Add SomePairs#to_h for compatibility with Ruby 2.0+  
 http://d.hatena.ne.jp/nagachika/20120416/ruby_trunk_changes_35337_35352
 
 Features
 --------
+
+Ruby 2.0+
 
 * Hash#to_h
 * Struct#to_h
 * ENV.to_h
 * NilClass#to_h
 * OpenStruct#to_h
+
+Ruby 2.1+
+
+* Enumerable#to_h
+* Array#to_h
 
 Usage
 -----

@@ -1,4 +1,4 @@
-# to_h - Add SomePairs#to_h for compatbility with Ruby 2.0~
+# to_h - Add SomePairs#to_h for compatibility with Ruby 2.0~
 # Copyright (c) 2012 Kenichi Kamiya
 
 # @see http://d.hatena.ne.jp/nagachika/20120416/ruby_trunk_changes_35337_35352
